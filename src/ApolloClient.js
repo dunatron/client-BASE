@@ -7,8 +7,14 @@ import { ApolloLink, concat } from "apollo-link"
 import { connect } from "react-redux"
 import App from "./App"
 import { BrowserRouter } from "react-router-dom"
-// import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles';
 import customTheme from "./theme"
+import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
+import { createMuiTheme } from "@material-ui/core/styles"
+
+import { grey, amber, red } from "@material-ui/core/colors"
+import createPalette from "@material-ui/core/styles/createPalette"
+
+const muiTheme = createMuiTheme(customTheme)
 
 let GRAPHQL_ENDPOINT =
   "https://us1.prisma.sh/heath-dunlop-37e897/hacker-server-db/dev"
@@ -45,9 +51,9 @@ const client = createClient(localStorage.getItem("jwt"))
 
 const ApolloApp = ({ token }) => (
   <ApolloProvider client={client}>
-    {/* <MuiThemeProvider theme={theme}> */}
-    <App />
-    {/* </MuiThemeProvider> */}
+    <MuiThemeProvider theme={muiTheme}>
+      <App />
+    </MuiThemeProvider>
   </ApolloProvider>
 )
 
