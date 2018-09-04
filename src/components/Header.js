@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import { withRouter } from "react-router"
-import { AUTH_TOKEN } from '../constants'
-
+import { AUTH_TOKEN } from "../constants"
 
 class Header extends Component {
   render() {
@@ -11,6 +10,10 @@ class Header extends Component {
       <div className="flex pa1 justify-between nowrap orange">
         <div className="flex flex-fixed black">
           <div className="fw7 mr1">Hacker News</div>
+          <div className="ml1">|</div>
+          <Link to="/search" className="ml1 no-underline black">
+            search
+          </Link>
           <Link to="/" className="ml1 no-underline black">
             new
           </Link>
@@ -30,8 +33,7 @@ class Header extends Component {
               onClick={() => {
                 localStorage.removeItem(AUTH_TOKEN)
                 this.props.history.push(`/`)
-              }}
-            >
+              }}>
               logout
             </div>
           ) : (

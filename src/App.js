@@ -7,6 +7,7 @@ import Login from "./components/Login"
 import MenuAppBar from "./components/MenuAppBar"
 import LinkList from "./components/LinkList"
 import CreateLink from "./components/CreateLink"
+import Search from "./components/Search"
 
 // localStorage.setItem(
 //   "jwt",
@@ -23,6 +24,7 @@ class App extends Component {
             <Route exact path="/" component={LinkList} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/create" component={CreateLink} />
+            <Route exact path="/search" component={Search} />
           </Switch>
         </div>
       </div>
